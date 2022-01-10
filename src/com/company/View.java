@@ -3,6 +3,7 @@ package com.company;
 import com.company.repository.BestellungRepository;
 import com.company.repository.ProduktRepository;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class View {
@@ -37,31 +38,94 @@ public class View {
                 case 0:
                     break loop;
                 case 1:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    produktRepository.create(new Produkt());
+                    System.out.println("Enter Produkt name:");
+                    try {
+                        String name = scanner.nextLine();
+                        System.out.println("Enter Produkt preis:");
+                        scanner.nextLine();
+                        int preis = scanner.nextInt();
+
+                        produktRepository.create(new Produkt(name, preis));
+
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 2:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    produktRepository.delete(new Produkt());
+                    System.out.println("Enter Produkt name:");
+                    try {
+                        String name = scanner.nextLine();
+                        System.out.println("Enter Produkt preis:");
+                        scanner.nextLine();
+                        int preis = scanner.nextInt();
+
+                        produktRepository.delete(new Produkt(name, preis));
+
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 3:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    produktRepository.update(new Produkt());
+                    System.out.println("Enter Produkt name:");
+                    try {
+                        String name = scanner.nextLine();
+                        System.out.println("Enter Produkt preis:");
+                        scanner.nextLine();
+                        int preis = scanner.nextInt();
+
+                        produktRepository.update(new Produkt(name, preis));
+
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 4:
                     System.out.println(produktRepository.getAll());
                     break;
                 case 5:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    bestellungRepository.create(new Bestellung());
+                    System.out.println("Enter Bestellung nr:");
+                    try {
+                        int nr = scanner.nextInt();
+                        System.out.println("Enter Bestellung adresse:");
+                        scanner.nextLine();
+                        String adresse = scanner.nextLine();
+
+                        bestellungRepository.create(new Bestellung(nr, adresse, new ArrayList<>()));
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 6:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    bestellungRepository.delete(new Bestellung());
+                    System.out.println("Enter Bestellung nr:");
+                    try {
+                        int nr = scanner.nextInt();
+                        System.out.println("Enter Bestellung adresse:");
+                        scanner.nextLine();
+                        String adresse = scanner.nextLine();
+
+                        bestellungRepository.delete(new Bestellung(nr, adresse, new ArrayList<>()));
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 7:
-                    //hier wird gelesen und ein neu Obj Produkt gemacht
-                    bestellungRepository.update(new Bestellung());
+                    System.out.println("Enter Bestellung nr:");
+                    try {
+                        int nr = scanner.nextInt();
+                        System.out.println("Enter Bestellung adresse:");
+                        scanner.nextLine();
+                        String adresse = scanner.nextLine();
+
+                        bestellungRepository.update(new Bestellung(nr, adresse, new ArrayList<>()));
+
+                    } catch (Exception e) {
+                        throw e;
+                    }
                     break;
                 case 8:
                     System.out.println(bestellungRepository.getAll());

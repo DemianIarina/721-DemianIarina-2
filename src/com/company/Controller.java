@@ -5,6 +5,7 @@ import com.company.repository.BestellungRepository;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
+import java.util.Objects;
 import java.util.stream.Collectors;
 
 public class Controller {
@@ -21,12 +22,23 @@ public class Controller {
             preise.add(new Pair(bestellung, sum));
         }
 
-        List<Pair> sortierteBestellungen = preise.stream()
+        return preise.stream()
                 .sorted(Comparator.comparing(Pair::getSum)
                         .reversed())
                 .collect(Collectors.toList());
+    }
 
-        return sortierteBestellungen;
+    public List<Bestellung> sortNachProdukt(Produkt produkt){
+        List<Bestellung> sortedBestellungen = new ArrayList<>();
+
+        for(Bestellung bestellung : bestellungRepository.getAll()){
+            if(bestellung.getProdukte().stream()
+                    .anyMatch(obj -> Objects.equals(obj.getName(), produkt.getName()))){  //wenn man in die Bestellung die Produkt existiert
+                assert false;
+                sortedBestellungen.add(bestellung);       //dann adddiren wir die Bestellung
+            }
+        }
+        return sortedBestellungen;
     }
 
 
