@@ -43,7 +43,7 @@ public class Controller {
                     produktRepository.update(new Produkt());
                     break;
                 case 4:
-                    produktRepository.getAll();
+                    System.out.println(produktRepository.getAll());
                     break;
             }
 
