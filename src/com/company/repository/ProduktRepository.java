@@ -13,8 +13,7 @@ public class ProduktRepository extends InMemoryRepository<Produkt>{
                 .filter(produkt -> Objects.equals(produkt.getName(), obj.getName()))
                 .findFirst()
                 .orElseThrow();
-        produktToUpdate.setName(obj.getName());
-        produktToUpdate.setName(obj.getName());
+        produktToUpdate.setPreis(obj.getPreis());
 
         return produktToUpdate;
     }
