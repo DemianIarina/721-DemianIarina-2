@@ -11,6 +11,10 @@ import java.util.stream.Collectors;
 public class Controller {
     private BestellungRepository bestellungRepository;
 
+    public Controller(BestellungRepository bestellungRepository) {
+        this.bestellungRepository = bestellungRepository;
+    }
+
     public List<Pair> sortierenBestellungen(){
         List<Bestellung> bestellungs = bestellungRepository.getAll();
         List<Pair> preise = new ArrayList<>();

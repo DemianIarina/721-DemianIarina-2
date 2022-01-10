@@ -22,6 +22,7 @@ public abstract class InMemoryRepository <T> implements ICrudRepository<T> {
      */
     @Override
     public T create(T obj) {
+        //TODO: throw error wenn das objekt schon existiert
         this.repoList.add(obj);
         return obj;
     }
@@ -41,6 +42,7 @@ public abstract class InMemoryRepository <T> implements ICrudRepository<T> {
      */
     @Override
     public void delete(T obj) {
+        //TODO: throw error wenn das objekt nicht existiert
         this.repoList.remove(obj);
     }
 
